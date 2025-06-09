@@ -6,7 +6,7 @@ spec:
   type: LoadBalancer
   selector:
     app: my-app
-    version: blue  # or green (switch manually or via pipeline)
+    version: green  # or green (switch manually or via pipeline)
   ports:
     - port: 80
       targetPort: 80
