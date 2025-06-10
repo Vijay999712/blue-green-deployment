@@ -3,14 +3,15 @@ kind: Ingress
 metadata:
   name: my-app-ingress
   annotations:
-    kubernetes.io/ingress.class: alb                              # ✅ Required
-    alb.ingress.kubernetes.io/scheme: internet-facing             # ✅ Required for public ALB
-    alb.ingress.kubernetes.io/load-balancer-name: "my-app-alb"   # ✅ Optional, but fine
-    alb.ingress.kubernetes.io/target-type: ip                     # ✅ Required if using pod IPs
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/load-balancer-name: "my-app-alb"
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/subnets: subnet-0a63dcf636e377bf1,subnet-0c84ef780a0d75539,subnet-0553c146d62c76983,subnet-0c678974ae4a0f6c2
 spec:
   rules:
-    - host: your-app.example.com                                  # 🔁 Update this or remove for wildcard
-      http:
+    - http:
         paths:
           - path: /
             pathType: Prefix
