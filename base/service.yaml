@@ -5,7 +5,7 @@ metadata:
 spec:
   selector:
     app: my-app
-    version: green  # 🔁 Change this to blue or green
+    version: blue  # 🔁 Change this to blue or green
   ports:
     - protocol: TCP
       port: 80
